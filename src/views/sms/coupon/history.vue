@@ -210,9 +210,14 @@
         let date = new Date(time);
         return formatDate(date, 'yyyy-MM-dd')
       },
-      formatStatus(endTime) {
+      formatStatus(endTime) { // md我感觉跟时间有关的都要改呀...
         let now = new Date().getTime();
-        if (endTime > now) {
+        // 将日期字符串转换为Date对象
+        let endDate = new Date(endTime);
+
+        // 获取开始和结束时间的毫秒表示
+        let endMillis = endDate.getTime();
+        if (endMillis > now) {
           return '未过期'
         } else {
           return '已过期';

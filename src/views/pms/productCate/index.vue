@@ -60,10 +60,10 @@
               :disabled="scope.row.level | disableNextLevel"
               @click="handleShowNextLevel(scope.$index, scope.row)">查看下级
             </el-button>
-            <el-button
+<!--            <el-button
               size="mini"
               @click="handleTransferProduct(scope.$index, scope.row)">转移商品
-            </el-button>
+            </el-button>-->
           </template>
         </el-table-column>
         <el-table-column label="操作" width="200" align="center">

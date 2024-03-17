@@ -166,10 +166,29 @@
     },
     filters: {
       formatActiveStatus(row) {
+        // let nowTime = new Date().getTime();
+        // alert(nowTime);
+        // if (nowTime >= row.startDate && nowTime <= row.endDate) {
+        //   return '活动进行中';
+        // } else if (nowTime > row.endDate) {
+        //   return '活动已结束';
+        // } else {
+        //   return '活动未开始';
+        // }
         let nowTime = new Date().getTime();
-        if (nowTime >= row.startDate && nowTime <= row.endDate) {
+        // alert(nowTime);
+
+        // 将日期字符串转换为Date对象
+        let startDate = new Date(row.startDate);
+        let endDate = new Date(row.endDate);
+
+        // 获取开始和结束时间的毫秒表示
+        let startMillis = startDate.getTime();
+        let endMillis = endDate.getTime();
+
+        if (nowTime >= startMillis && nowTime <= endMillis) {
           return '活动进行中';
-        } else if (nowTime > row.endDate) {
+        } else if (nowTime > endMillis) {
           return '活动已结束';
         } else {
           return '活动未开始';
